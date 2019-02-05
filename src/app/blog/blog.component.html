@@ -1,0 +1,24 @@
+
+<section id="pricing" class="secondary-color text-center scrollto clearfix ">
+  <div class="row clearfix">
+
+      <div class="section-heading">
+          <h3>{{blog.tagline}}</h3>
+          <h2 class="section-title">{{blog.title}}</h2>
+      </div>
+      <div *ngFor='let post of blog.posts' class="post-block col-3 wow fadeInUp" data-wow-delay="0.4s">
+          <app-post [post]="post"></app-post>
+     </div>
+  </div>
+  <div class="row clearfix">
+      <ul *ngIf="pager">
+          <li><a (click)="setPage(1)">First</a></li>
+          <li><a (click)="setPage(pager.currentPage - 1)">Previous</a></li>
+          <li *ngFor="let page of pager.pages">
+              <a (click)="setPage(page)">{{page}}</a></li>
+          <li><a (click)="setPage(pager.currentPage + 1)">Next</a></li>
+          <li><a (click)="setPage(pager.totalPages)">Last</a></li>
+      </ul>
+  </div>
+  
+</section>
